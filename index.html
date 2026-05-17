@@ -180,6 +180,12 @@
                 <h2 class="section-title">TOOLS & SYSTEM</h2>
             </div>
             <div class="tools-grid">
+                <button class="tool-item tool-suite" type="button" data-suite="microsoft" aria-label="Show Microsoft 365 tools">
+                    <img src="assets/microsoft-365.svg" alt="Microsoft 365 logo">
+                </button>
+                <button class="tool-item tool-suite" type="button" data-suite="google" aria-label="Show Google Workspace tools">
+                    <img src="assets/google-workspace.svg" alt="Google Workspace logo">
+                </button>
                 <div class="tool-item">
                     <img src="assets/tool-1-instagram.png" alt="Tool and system logo 1">
                 </div>
@@ -200,15 +206,6 @@
                 </div>
                 <div class="tool-item">
                     <img src="assets/tool-7.png" alt="Tool and system logo 7">
-                </div>
-                <div class="tool-item">
-                    <img src="assets/tool-8.png" alt="Tool and system logo 8">
-                </div>
-                <div class="tool-item">
-                    <img src="assets/tool-9.png" alt="Tool and system logo 9">
-                </div>
-                <div class="tool-item">
-                    <img src="assets/tool-10.jpg" alt="Tool and system logo 10">
                 </div>
             </div>
         </div>
@@ -318,6 +315,16 @@
             <i class="fas fa-times"></i>
         </button>
         <img class="media-viewer__image" alt="">
+    </div>
+
+    <div class="suite-modal" id="suiteModal" aria-hidden="true">
+        <div class="suite-modal__panel" role="dialog" aria-modal="true" aria-label="Tools list">
+            <button class="suite-modal__close" type="button" aria-label="Close tools list">
+                <i class="fas fa-times"></i>
+            </button>
+            <img class="suite-modal__logo" alt="">
+            <div class="suite-modal__tools"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>

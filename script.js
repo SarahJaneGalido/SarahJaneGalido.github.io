@@ -136,9 +136,89 @@ mediaViewer.addEventListener('click', event => {
     }
 });
 
+// ==================== Tool Suite Modal ====================
+const suiteData = {
+    microsoft: {
+        logo: 'assets/microsoft-365.svg',
+        label: 'Microsoft 365 tools',
+        tools: [
+            { label: 'Word', icon: 'assets/ms-word.svg' },
+            { label: 'Excel', icon: 'assets/ms-excel.svg' },
+            { label: 'PowerPoint', icon: 'assets/ms-powerpoint.svg' },
+            { label: 'Teams', icon: 'assets/ms-teams.svg' },
+            { label: 'Outlook', icon: 'assets/ms-outlook.svg' },
+            { label: 'OneDrive', icon: 'assets/ms-onedrive.svg' }
+        ]
+    },
+    google: {
+        logo: 'assets/google-workspace.svg',
+        label: 'Google Workspace tools',
+        tools: [
+            { label: 'Gmail', icon: 'assets/google-gmail.svg' },
+            { label: 'Calendar', icon: 'assets/google-calendar.svg' },
+            { label: 'Drive', icon: 'assets/google-drive.svg' },
+            { label: 'Docs', icon: 'assets/google-docs.svg' },
+            { label: 'Sheets', icon: 'assets/google-sheets.svg' },
+            { label: 'Meet', icon: 'assets/google-meet.svg' }
+        ]
+    }
+};
+
+const suiteModal = document.querySelector('#suiteModal');
+const suiteModalPanel = suiteModal.querySelector('.suite-modal__panel');
+const suiteModalLogo = suiteModal.querySelector('.suite-modal__logo');
+const suiteModalTools = suiteModal.querySelector('.suite-modal__tools');
+const suiteModalClose = suiteModal.querySelector('.suite-modal__close');
+
+const closeSuiteModal = () => {
+    suiteModal.classList.remove('active');
+    suiteModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('viewer-open');
+};
+
+document.querySelectorAll('[data-suite]').forEach(button => {
+    button.addEventListener('click', () => {
+        const suite = suiteData[button.dataset.suite];
+        if (!suite) return;
+
+        suiteModalLogo.src = suite.logo;
+        suiteModalLogo.alt = suite.label;
+        suiteModalPanel.setAttribute('aria-label', suite.label);
+        suiteModalTools.replaceChildren(...suite.tools.map(tool => {
+            const item = document.createElement('span');
+            item.className = 'suite-modal__tool';
+            item.setAttribute('aria-label', tool.label);
+
+            const icon = document.createElement('img');
+            icon.src = tool.icon;
+            icon.alt = '';
+
+            item.append(icon);
+            return item;
+        }));
+
+        suiteModal.classList.add('active');
+        suiteModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('viewer-open');
+        suiteModalClose.focus();
+    });
+});
+
+suiteModalClose.addEventListener('click', closeSuiteModal);
+
+suiteModal.addEventListener('click', event => {
+    if (event.target === suiteModal) {
+        closeSuiteModal();
+    }
+});
+
 document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && mediaViewer.classList.contains('active')) {
         closeMediaViewer();
+    }
+
+    if (event.key === 'Escape' && suiteModal.classList.contains('active')) {
+        closeSuiteModal();
     }
 });
 
