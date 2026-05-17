@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarah Jane Galido - Virtual Assistant & Social Media Manager</title>
     <meta name="description" content="Discover Sarah Jane Galido, a skilled Virtual Assistant and Social Media Manager offering expert admin and social media support to boost your business.">
+    <link rel="icon" href="assets/branding/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/branding/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/favicon-180x180.png">
+    <link rel="manifest" href="assets/branding/site.webmanifest">
+    <meta name="theme-color" content="#A67C8A">
     <script>
         const savedTheme = localStorage.getItem('theme');
         document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
@@ -16,7 +22,13 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">SJ Galido</a>
+            <a href="#home" class="nav-logo" aria-label="Sarah Jane Galido home">
+                <img src="assets/branding/logo-icon.png" alt="" class="nav-logo__mark">
+                <span class="nav-logo__text">
+                    <span class="nav-logo__name">Sarah Jane Galido</span>
+                    <span class="nav-logo__tagline">VA & Social Media Manager</span>
+                </span>
+            </a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#about" class="nav-link">About Me</a>
@@ -292,6 +304,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <img src="assets/branding/logo-icon.png" alt="SJPG logo" class="footer-logo">
             <p>&copy; 2024 Sarah Jane Galido. All rights reserved.</p>
             <div class="footer-links">
                 <a href="#">Terms & Support</a>
