@@ -1,0 +1,42 @@
+# Git Ignore Rules
+
+# IDE and Editor files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+*~
+.env.local
+.env.*.local
+
+# Node modules (if using npm)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build and dist files
+dist/
+build/
+.cache/
+
+# Operating system files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Config files with sensitive info
+.env
+config.local.env
+
+# Temporary files
+*.tmp
+*.temp
+backup/
+
+# OS-specific
+.AppleDouble
+.LSOverride
